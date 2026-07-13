@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lo imaginas, lo construyes — Materiales de construcción en Zapopan</title>
+  <meta name="description" content="Venta y distribución de materiales de construcción en la Zona Metropolitana de Guadalajara. Cemento, varilla, block, agregados y más. Entrega a obra.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ====== ENCABEZADO ====== -->
+  <header class="site-header">
+    <a class="brand" href="#inicio">
+      <span class="brand-mark">LC</span>
+      <span class="brand-name">Lo imaginas,<br>lo construyes</span>
+    </a>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#cotizador">Cotizador</a>
+      <a href="#envios">Envíos</a>
+      <a href="#pagos">Pagos</a>
+      <a href="#faq">Preguntas</a>
+    </nav>
+    <a class="btn btn-telegram" href="https://t.me/TU_BOT_AQUI" target="_blank" rel="noopener">
+      Cotiza por Telegram
+    </a>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero" id="inicio">
+    <p class="eyebrow">Materiales de construcción · Zapopan, Jalisco</p>
+    <h1>DEL PLANO<br>A TU OBRA<span class="dot">.</span></h1>
+    <p class="hero-sub">
+      Más de 10 años surtiendo obras grandes y pequeñas en la Zona Metropolitana
+      de Guadalajara. Precios justos, entrega puntual y asesoría honesta.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#catalogo">Ver catálogo y precios</a>
+      <a class="btn btn-ghost" href="#cotizador">Cotizar mi material</a>
+    </div>
+    <dl class="hero-facts">
+      <div><dt>Entrega</dt><dd>Mismo día en Zona 1</dd></div>
+      <div><dt>Envío gratis</dt><dd>Pedidos +$10,000</dd></div>
+      <div><dt>Horario</dt><dd>L–V 8–18 h · Sáb 8–14 h</dd></div>
+    </dl>
+  </section>
+  <div class="stripe" role="presentation"></div>
+
+  <!-- ====== CATÁLOGO ====== -->
+  <section class="section" id="catalogo">
+    <h2 class="section-title">Catálogo y precios</h2>
+    <p class="section-note">Precios en MXN con IVA, de referencia. Cotización formal con vigencia de 5 días con tu asesor.</p>
+
+    <div class="tabs" role="tablist" aria-label="Categorías de productos" id="tabs-catalogo"></div>
+    <div class="catalog-grid" id="grid-catalogo"></div>
+  </section>
+
+  <!-- ====== COTIZADOR ====== -->
+  <section class="section section-dark" id="cotizador">
+    <h2 class="section-title">Cotizador rápido</h2>
+    <p class="section-note">Estima tu pedido con descuentos por volumen y envío por zona. Es un estimado: confirma con un asesor.</p>
+
+    <div class="quoter">
+      <div class="quoter-form">
+        <label>
+          Categoría
+          <select id="q-categoria"></select>
+        </label>
+        <label>
+          Producto
+          <select id="q-producto"></select>
+        </label>
+        <label>
+          Cantidad <span id="q-unidad" class="unit-hint"></span>
+          <input type="number" id="q-cantidad" min="1" value="10">
+        </label>
+        <label>
+          Zona de entrega
+          <select id="q-zona">
+            <option value="0">Recoger en tienda (gratis)</option>
+            <option value="1">Zona 1 — Zapopan centro/industrial</option>
+            <option value="2">Zona 2 — Guadalajara y resto de Zapopan</option>
+            <option value="3">Zona 3 — Tlaquepaque, Tonalá, Tlajomulco</option>
+            <option value="4">Zona 4 — El Salto, Tesistán, Santa Anita</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="quoter-result" aria-live="polite">
+        <div class="ticket">
+          <p class="ticket-head">COTIZACIÓN ESTIMADA</p>
+          <div class="ticket-row"><span>Subtotal</span><span id="r-subtotal">$0</span></div>
+          <div class="ticket-row ticket-discount" id="row-descuento" hidden>
+            <span id="r-descuento-label">Descuento</span><span id="r-descuento">−$0</span>
+          </div>
+          <div class="ticket-row"><span>Envío</span><span id="r-envio">$0</span></div>
+          <div class="ticket-row ticket-total"><span>Total</span><span id="r-total">$0</span></div>
+          <p class="ticket-note" id="r-nota"></p>
+          <a class="btn btn-telegram btn-block" href="https://t.me/TU_BOT_AQUI" target="_blank" rel="noopener">
+            Confirmar con el asistente
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ENVÍOS ====== -->
+  <section class="section" id="envios">
+    <h2 class="section-title">Envíos y entregas</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Zona</th><th>Cobertura</th><th>Costo</th><th>Tiempo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Zona 1</td><td>Zapopan (centro e industrial)</td><td>Gratis desde $3,000 · $150 si es menor</td><td>Mismo día o siguiente</td></tr>
+          <tr><td>Zona 2</td><td>Guadalajara, resto de Zapopan</td><td>$250</td><td>1 día hábil</td></tr>
+          <tr><td>Zona 3</td><td>Tlaquepaque, Tonalá, Tlajomulco</td><td>$350</td><td>1–2 días hábiles</td></tr>
+          <tr><td>Zona 4</td><td>El Salto, Tesistán, Santa Anita</td><td>$450</td><td>2–3 días hábiles</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="notes">
+      <li>Envío <strong>gratis</strong> en pedidos mayores a $10,000 a cualquier zona.</li>
+      <li>Agregados a pie de obra en camión de volteo de 7 m³ (pedido mínimo 3 m³); confirma que hay acceso.</li>
+      <li>Ventana de entrega de 2 horas; el chofer avisa 30 min antes por WhatsApp.</li>
+      <li>Recoge en tienda sin costo: tu pedido queda listo en 2 horas.</li>
+    </ul>
+  </section>
+
+  <!-- ====== PAGOS ====== -->
+  <section class="section" id="pagos">
+    <h2 class="section-title">Formas de pago</h2>
+    <div class="pay-grid">
+      <article class="pay-card"><h3>Efectivo</h3><p>En tienda o contra entrega hasta $8,000.</p></article>
+      <article class="pay-card"><h3>Tarjeta</h3><p>Visa, Mastercard y Amex, en tienda o con link de pago. 3 y 6 MSI desde $5,000 con tarjetas participantes.</p></article>
+      <article class="pay-card"><h3>Transferencia SPEI</h3><p>Te enviamos los datos al confirmar; el pedido se libera al acreditarse.</p></article>
+      <article class="pay-card"><h3>Crédito a constructoras</h3><p>Línea a 30 días previa aprobación, con RFC y comprobantes.</p></article>
+    </div>
+    <p class="section-note">Emitimos factura (CFDI): solicítala al momento de tu compra.</p>
+  </section>
+
+  <!-- ====== FAQ ====== -->
+  <section class="section" id="faq">
+    <h2 class="section-title">Preguntas frecuentes</h2>
+    <div class="faq-list" id="faq-list"></div>
+  </section>
+
+  <!-- ====== PIE ====== -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">LO IMAGINAS, LO CONSTRUYES</p>
+        <p>Av. de los Constructores #1250,<br>Col. Industrial, Zapopan, Jalisco.</p>
+      </div>
+      <div>
+        <p><strong>Horario</strong><br>Lunes a viernes 8:00–18:00<br>Sábados 8:00–14:00 · Domingos cerrado</p>
+      </div>
+      <div>
+        <p><strong>Contacto</strong><br>Tel / WhatsApp: 33 1234 5678<br>ventas@loimaginasloconstruyes.mx</p>
+      </div>
+    </div>
+    <p class="footer-legal">Empresa ficticia con fines educativos. Precios de referencia sujetos a cambio.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
